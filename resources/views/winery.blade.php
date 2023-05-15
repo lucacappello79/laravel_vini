@@ -4,7 +4,7 @@
 
 <div class="container">
     <h1 class="text-center mt-5">Wineries</h1>
-    <table class="table  table-striped table-hover table-info my-5">
+    <table class="table  table-striped table-hover table-success my-5">
         <thead class="table-dark">
             <tr>
                 <th scope="col">Name</th>
