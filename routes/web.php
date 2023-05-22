@@ -9,25 +9,16 @@ use App\Http\Controllers\Guest\WineryController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\VineController;
 use Illuminate\Support\Facades\Route;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+use App\Http\Controllers\Guest\VineController as GuestVineController;
+use App\Http\Controllers\Guest\WineryController as GuestWineryController;
 
 Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/guest', [GuestWineController::class, 'home'])->name('guestHome');
-Route::get('/guest', [GuestVineController::class, 'home'])->name('guestHome');
-Route::get('/guest', [GuestWineryController::class, 'home'])->name('guestHome');
+Route::get('/guest/wine', [GuestWineController::class, 'home'])->name('guestWine');
+Route::get('/guest/vine', [GuestVineController::class, 'home'])->name('guestVine');
+Route::get('/guest/winery', [GuestWineryController::class, 'home'])->name('guestWinery');
 
 
 

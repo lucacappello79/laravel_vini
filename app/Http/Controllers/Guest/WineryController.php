@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class WineryController extends Controller
 {
-    public function index()
+    public function home()
     {
         $wineries = Winery::all();
         return view('guest.winery', compact(['wineries']));
