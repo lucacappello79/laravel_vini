@@ -11,6 +11,6 @@ class WineController extends Controller
     public function home()
     {
         $wines = Wine::all();
-        return view('guest.wine', compact(['wines']));
+        return view('guest/wine', compact(['wines']));
     }
 }
