@@ -31,6 +31,13 @@
 
 @section('content')
 
+<form class="m-3" action="{{route('guestVine')}}" method="GET">
+    @csrf
+    <label for="title">Search</label>
+    <input type="text" name="name" id="name">
+    <button type="submit"> cerca</button>
+</form>
+
 <div class="container">
     <h1 class="text-center mt-5">Vines</h1>
     <div class="row my-5">
