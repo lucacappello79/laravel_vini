@@ -1,8 +1,13 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminVineController;
+use App\Http\Controllers\Admin\AdminWineryController;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\WineController;
+use App\Http\Controllers\Guest\WineController as GuestWineController;
+use App\Http\Controllers\Guest\WineryController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\VineController;
-use App\Http\Controllers\WineController;
-use App\Http\Controllers\WineryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,8 +23,30 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('home');
-})->name('home');
+});
 
-Route::get('wine', [WineController::class, 'index'])->name('wine');
-Route::get('vine', [VineController::class, 'index'])->name('vine');
-Route::get('winery', [WineryController::class, 'index'])->name('winery');
+Route::get('/guest', [GuestWineController::class, 'home'])->name('guestHome');
+Route::get('/guest', [GuestVineController::class, 'home'])->name('guestHome');
+Route::get('/guest', [GuestWineryController::class, 'home'])->name('guestHome');
+
+
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(function () {
+
+    Route::resource('wines', WineController::class);
+    Route::resource('wineries', AdminWineryController::class);
+    Route::resource('vines', AdminVineController::class);
+    Route::get('/', [DashboardController::class, 'home']);
+});
+
+require __DIR__ . '/auth.php';

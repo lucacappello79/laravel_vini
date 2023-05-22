@@ -4,7 +4,7 @@
 
 <div class="container">
 
-    <h1 class="text-center mt-5">Wine</h1>
+    <h1 class="text-center mt-5">Here's our List of wines</h1>
 
     <table class="table  table-striped table-hover table-info my-5">
         <thead class="table-dark">
