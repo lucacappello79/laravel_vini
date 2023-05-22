@@ -1,4 +1,4 @@
-@extends ('layouts/main')
+{{-- @extends ('layouts/main')
 
 @section('content')
 <h1 class="text-center mt-5">Vines</h1>
@@ -19,6 +19,34 @@
             @endforeach
         </tbody>
     </table>
+</div>
+
+@endsection --}}
+
+@php
+    $colors = ['primary', 'secondary', 'success', 'danger', 'dark'];
+@endphp
+
+@extends ('layouts/main')
+
+@section('content')
+
+<div class="container">
+    <h1 class="text-center mt-5">Vines</h1>
+    <div class="row my-5">
+        @foreach($vines as $index => $item)
+            <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+                <div class="card bg-{{ $colors[$index % count($colors)] }} text-white"">
+                    <div class="card-body">
+                        <h5 class="card-title">{{$item->name}}</h5>
+                        <p class="card-text">
+                            <strong>Description:</strong> {{$item->description}}<br>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        @endforeach
+    </div>
 </div>
 
 @endsection
