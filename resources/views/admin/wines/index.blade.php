@@ -1,4 +1,4 @@
-@extends ('layouts/admin')
+@extends('layouts/main')
 
 @section('content')
 
@@ -30,10 +30,12 @@
                     <td>{{$item->alcohol_content}} %</td>
                     <td>{{$item->extract}} g/l</td>
                     <td>{{$item->acidity}} g/l</td>
+                    <td><a href="{{route('admin.wines.show', $item)}}">Apri</a></td>
                 </tr>
             @endforeach
         </tbody>
     </table>
+    <a href="{{route('admin.wines.create')}}"><button class="btn btn-primary">Add</button></a>
 </div>
 
 @endsection

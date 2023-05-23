@@ -16,9 +16,9 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/guest/wine', [GuestWineController::class, 'home'])->name('guestWine');
-Route::get('/guest/vine', [GuestVineController::class, 'home'])->name('guestVine');
-Route::get('/guest/winery', [GuestWineryController::class, 'home'])->name('guestWinery');
+Route::get('wine', [GuestWineController::class, 'home'])->name('guestWine');
+Route::get('vine', [GuestVineController::class, 'home'])->name('guestVine');
+Route::get('winery', [GuestWineryController::class, 'home'])->name('guestWinery');
 
 
 

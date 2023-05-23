@@ -10,6 +10,7 @@ class WineController extends Controller
 {
     public function home(Request $request)
     {
+<<<<<<< HEAD
         if ($request->has('name')) {
 
             $wines = Wine::where('name', 'like', "%$request->name%")->get();
@@ -18,5 +19,9 @@ class WineController extends Controller
         }
 
         return view('guest.wine', compact(['wines']));
+=======
+        $wines = Wine::all();
+        return view('guest/wine', compact(['wines']));
+>>>>>>> eb9682eee72c0dc61c40e4b5a41cf426f99f4cf3
     }
 }

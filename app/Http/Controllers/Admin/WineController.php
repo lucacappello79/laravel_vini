@@ -56,7 +56,7 @@ class WineController extends Controller
      */
     public function show(Wine $wine)
     {
-        return view('admin/wines/show', compact('wine'));
+        return  view('admin/wines/show', compact('wine'));
     }
 
     /**
@@ -79,7 +79,7 @@ class WineController extends Controller
      */
     public function update(Request $request, Wine $wine)
     {
-        $this->validation($request);
+        // $this->validation($request);
 
         $formData = $request->all();
         $wine->update($formData);
@@ -98,6 +98,6 @@ class WineController extends Controller
     {
         $wine->delete();
 
-        return redirect()->route('admin.wine.index');
+        return redirect()->route('admin.wines.index');
     }
 }
