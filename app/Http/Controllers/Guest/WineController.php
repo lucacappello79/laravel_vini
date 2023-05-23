@@ -8,9 +8,15 @@ use Illuminate\Http\Request;
 
 class WineController extends Controller
 {
-    public function home()
+    public function home(Request $request)
     {
-        $wines = Wine::all();
+        if ($request->has('name')) {
+
+            $wines = Wine::where('name', 'like', "%$request->name%")->get();
+        } else {
+            $wines = Wine::all();
+        }
+
         return view('guest.wine', compact(['wines']));
     }
 }

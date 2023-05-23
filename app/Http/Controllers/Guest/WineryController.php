@@ -8,9 +8,15 @@ use Illuminate\Http\Request;
 
 class WineryController extends Controller
 {
-    public function home()
+    public function home(Request $request)
     {
-        $wineries = Winery::all();
+        if ($request->has('name')) {
+
+            $wineries = Winery::where('name', 'like', "%$request->name%")->get();
+        } else {
+            $wineries = Winery::all();
+        }
+
         return view('guest.winery', compact(['wineries']));
     }
 }
