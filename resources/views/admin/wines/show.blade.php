@@ -13,9 +13,10 @@
                 <div class="card bg-dark text-white">
                     <div class="card-body">
                         <h5 class="card-title">{{$wine->name}}</h5>
+                       
+                        <h3>{{$wine->winery?->name}}</h3>
                         <p class="card-text">
                             <strong>Address:</strong> {{$wine->year}}<br>
-                            <strong>Municipality:</strong> {{$wine->winery}}<br>
                             <strong>Province:</strong> {{$wine->color}}<br>
                             <strong>Region:</strong> {{$wine->type}}<br>
                             <strong>Country:</strong> {{$wine->alcohol_content}}<br>

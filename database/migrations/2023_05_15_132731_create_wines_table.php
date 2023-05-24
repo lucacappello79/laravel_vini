@@ -18,7 +18,6 @@ return new class extends Migration
 
             $table->string('name', 50);
             $table->year('year');
-            $table->string('winery', 50);
             $table->string('color', 30);
             $table->string('type', 30);
             $table->string('alcohol_content', 5);
