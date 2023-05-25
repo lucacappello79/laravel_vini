@@ -51,6 +51,18 @@
             </div>
           @enderror
         </div>
+
+        <div class="mb-3 form-group">
+          <h3>Vitigni:</h3>
+  
+          @foreach($vines as $item)
+          <div class="form-check">
+            <input type="checkbox" id="vine-{{$item->id}}" name="vines[]" value="{{$item->id}}" @checked($wine->vines->contains($item))>
+            <label for="vine-{{$item->id}}">{{$item->name}}</label>
+          </div>
+          @endforeach
+  
+        </div>
     
     
         <div class="mb-3">

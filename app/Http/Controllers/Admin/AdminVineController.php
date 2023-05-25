@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Vine;
+use App\Models\Wine;
 use Illuminate\Http\Request;
 
 class AdminVineController extends Controller
@@ -26,6 +27,7 @@ class AdminVineController extends Controller
      */
     public function create()
     {
+
         return view('admin.vines.create');
     }
 
@@ -55,7 +57,9 @@ class AdminVineController extends Controller
      */
     public function show(Vine $vine)
     {
-        return view('admin/vines/show', compact('vine'));
+        $wines = Wine::all();
+
+        return view('admin/vines/show', compact('vine', 'wines'));
     }
 
     /**
@@ -64,9 +68,11 @@ class AdminVineController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Vine $vine)
     {
-        return view('admin.vines.edit', compact('vine'));
+        $wines = Wine::all();
+
+        return view('admin.vines.edit', compact('vine', 'wines'));
     }
 
     /**
@@ -78,7 +84,7 @@ class AdminVineController extends Controller
      */
     public function update(Request $request, Vine $vine)
     {
-        $this->validation($request);
+        // $this->validation($request);
 
         $formData = $request->all();
         $vine->update($formData);
@@ -97,6 +103,6 @@ class AdminVineController extends Controller
     {
         $vine->delete();
 
-        return redirect()->route('admin.vine.index');
+        return redirect()->route('admin.vines.index');
     }
 }

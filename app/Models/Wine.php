@@ -14,4 +14,9 @@ class Wine extends Model
     {
         return $this->belongsTo(Winery::class);
     }
+
+    public function vines()
+    {
+        return $this->belongsToMany(Vine::class);
+    }
 }

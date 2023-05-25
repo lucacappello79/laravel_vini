@@ -8,6 +8,7 @@
             <tr>
                 <th scope="col">Nome</th>
                 <th scope="col">Descrizione</th>
+                <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
@@ -15,6 +16,8 @@
                 <tr>
                     <td>{{$item->name}}</td>
                     <td>{{$item->description}}</td>
+                    <td><a href="{{route('admin.vines.show', $item)}}">Info</a></td>
+
                 </tr>
             @endforeach
         </tbody>

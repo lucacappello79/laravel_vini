@@ -53,9 +53,10 @@ class AdminWineryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Winery $winery)
     {
-        return view('admin/wineries/show', compact('winerie'));
+
+        return view('admin/wineries/show', compact('winery'));
     }
 
     /**
@@ -66,7 +67,7 @@ class AdminWineryController extends Controller
      */
     public function edit(Winery $winery)
     {
-        return view('admin.wineries.edit', compact('winerie'));
+        return view('admin.wineries.edit', compact('winery'));
     }
 
     /**
@@ -78,7 +79,7 @@ class AdminWineryController extends Controller
      */
     public function update(Request $request, Winery $winery)
     {
-        $this->validation($request);
+        // $this->validation($request);
 
         $formData = $request->all();
         $winery->update($formData);

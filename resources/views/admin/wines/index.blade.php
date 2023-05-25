@@ -16,6 +16,7 @@
                 <th scope="col">Alcohol %</th>
                 <th scope="col">Extract g/l</th>
                 <th scope="col">Acidity g/l</th>
+                
             </tr>
         </thead>
         <tbody>

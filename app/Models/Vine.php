@@ -9,4 +9,9 @@ class Vine extends Model
 {
     use HasFactory;
     protected $fillable = ['name', 'description'];
+
+    public function wines()
+    {
+        return $this->belongsToMany(Wine::class);
+    }
 }
