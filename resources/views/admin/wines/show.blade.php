@@ -14,7 +14,7 @@
                     <div class="card-body">
                         <h5 class="card-title">{{$wine->name}}</h5>
                        
-                        <h3>{{$wine->winery?->name}}</h3>
+                        <small style="color: gray" >{{$wine->winery?->name}}</small>
                         <p class="card-text">
                             <strong>Address:</strong> {{$wine->year}}<br>
                             <strong>Province:</strong> {{$wine->color}}<br>
