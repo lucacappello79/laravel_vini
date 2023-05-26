@@ -22,7 +22,6 @@ class WineSeeder extends Seeder
 
             $newWine->name = $faker->name();
             $newWine->year = $faker->year();
-            $newWine->winery = $faker->company();
             $newWine->color = $faker->colorName();
             $newWine->type = $faker->name();
             $newWine->alcohol_content = $faker->numberBetween(5, 40);
